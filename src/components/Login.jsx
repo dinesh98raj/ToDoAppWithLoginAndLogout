@@ -27,7 +27,7 @@ export default function Login(props) {
 
   return (
     <div className="row justify-content-center">
-      <div className="col-md-5">
+      <div className="col">
         <h4>Please Login to continue!</h4>
         <form autoComplete="off" onSubmit={handleSubmit}>
           <div className="form-group">
