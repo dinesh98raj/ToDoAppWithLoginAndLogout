@@ -3,7 +3,6 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ToDo from './components/ToDo';
 import Login from './components/Login';
-import './components/Login.css';
 
 function App() {
 
@@ -18,6 +17,7 @@ function App() {
 
     return (
       <React.Fragment>
+        
           { token ? <ToDo authtoken={token} handleToken={()=>setToken()}/> : <Login setToken={setToken} />}
       </React.Fragment>
     );
