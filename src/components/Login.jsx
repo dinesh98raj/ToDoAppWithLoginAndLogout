@@ -44,7 +44,7 @@ export default function Login(props) {
               onChange={(e) => setUsername(e.target.value)}
               value={username}
               placeholder="Enter Username"
-              className="form-control"></input>
+              className="form-control" required></input>
               </lable>
             </div>
             <div className="inputbx">
@@ -55,7 +55,7 @@ export default function Login(props) {
               onChange={(e) => setPassword(e.target.value)} 
               value={password} 
               placeholder="Enter Password"
-              className="form-control"></input>
+              className="form-control" required></input>
               </lable>
             </div>
             <div className="inputbx">
