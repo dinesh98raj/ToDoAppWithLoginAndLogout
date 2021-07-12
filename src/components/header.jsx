@@ -1,22 +1,22 @@
 import React from 'react';
+import './header.css';
 
 function header(props){
     function handleLogout(){
         sessionStorage.removeItem("token");
         props.handleToken("");
     }
+
     return(
-        <header>
-            <nav className="navbar navbar-expand-md navbar-dark bg-dark">
-                <div className="container">
-                    <div className="navbar-brand ">
-                            <p>TODO LIST</p>
-                        </div>
-                </div>
-                <div className="navbar-brand">
-                <button type="submit" className="navbar-brand bg-dark" onClick={handleLogout}>Logout</button>
-                </div>
-                
+        <header className="Header">
+            <div className="heading">
+                <h2 className="head">TODO LIST</h2>
+            </div>
+            <nav className="Nav">
+                <a href="/">ALL</a>
+                <a href="/active">Active</a>
+                <a href="/finished">Finished</a>
+                <button type="submit" onClick={handleLogout}>Logout</button>
             </nav>
         </header>        
     );

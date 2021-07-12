@@ -17,7 +17,6 @@ function App() {
 
     return (
       <React.Fragment>
-        
           { token ? <ToDo authtoken={token} handleToken={()=>setToken()}/> : <Login setToken={setToken} />}
       </React.Fragment>
     );

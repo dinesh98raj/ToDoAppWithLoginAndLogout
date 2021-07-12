@@ -6,13 +6,12 @@ import GenerateActiveList from './GenerateActiveList';
 import { GenerateCompletedList } from './GenerateCompletedList';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './header';
-import { Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route,Switch } from 'react-router-dom';
 
 function ToDo(props) {
   const inputRef = useRef();
   const editRef = useRef();
   const [list, setlist] = useState([]);
-  const [filter, setfilter] = useState("all");
   
   useEffect(()=>{
     getListOfTask(props.authtoken).then(res =>setlist(res.data)).catch(err => console.log(err));
@@ -113,60 +112,45 @@ function ToDo(props) {
       }));
   }
 
-  function GenerateList(){
-    switch(filter){
-      case "all": return (<div id="flexContainer">
-                            <GenerateParticularListItem
-                              tasklist={list}
-                              onDelete={handleDelete}
-                              onEdit={handleEdit}
-                              onStatus={handleStatus}
-                              onEditOk={handleEditOk}
-                              onEditCancel={handleEditCancel}
-                             ref={editRef}/>
-                          </div>);
-      case "active": return (<div id="flexContainer">
-                              <GenerateActiveList
-                                tasklist={list}
-                                onDelete={handleDelete}
-                                onEdit={handleEdit}
-                                onStatus={handleStatus}
-                                onEditOk={handleEditOk}
-                                onEditCancel={handleEditCancel}
-                                ref={editRef}/>
-                              </div>);
-      case "complete":return (<div id="flexContainer">
-                                <GenerateCompletedList
-                                tasklist={list}
-                                onDelete={handleDelete}/>
-                              </div>);
-      default:return null;
-    }
-  }
-
-/*  function GenerateListContainer(){
-    return (<div id="flexContainer">
-              <GenerateList/>
+function GenerateListRoute(){
+  return(
+    <Router>
+      <Switch>
+          <Route path="/active">
+            <div id="flexContainer">
+              <GenerateActiveList
+              tasklist={list}
+              onDelete={handleDelete}
+              onEdit={handleEdit}
+              onStatus={handleStatus}
+              onEditOk={handleEditOk}
+              onEditCancel={handleEditCancel}
+              ref={editRef}/>
+            </div>
+          </Route>
+          <Route path="/finished">
+            <div id="flexContainer">
+              <GenerateCompletedList
+              tasklist={list}
+              onDelete={handleDelete}/>
+              </div>
+          </Route>
+          <Route path="/">
+            <div id="flexContainer">
               <GenerateParticularListItem
-               tasklist={list}
-               onDelete={handleDelete}
-               onEdit={handleEdit}
-               onStatus={handleStatus}
-               onEditOk={handleEditOk}
-               onEditCancel={handleEditCancel}
-               ref={editRef}/>
-            </div>);
-  }*/
-
-  function GenerateFilters(){
-    return (
-      <div className="filter">
-        <button className="btn btn-dark space" onClick={()=> setfilter("all")}>all</button>
-        <button className="btn btn-dark space" onClick={()=> setfilter("active")}>Active</button>
-        <button className="btn btn-dark space" onClick={()=> setfilter("complete")}>Completed</button>
-      </div>
-    )
-  }
+              tasklist={list}
+              onDelete={handleDelete}
+              onEdit={handleEdit}
+              onStatus={handleStatus}
+              onEditOk={handleEditOk}
+              onEditCancel={handleEditCancel}
+              ref={editRef}/>
+            </div>
+          </Route>
+        </Switch>
+    </Router>
+  );
+}
 
   return (
           <div className="App">
@@ -174,9 +158,8 @@ function ToDo(props) {
               <form className="Addform" autoComplete="off">
                 <Input type="text" ref={inputRef} placeholder="enter your task"></Input>
                 <button onClick={updateList}>add</button>  
-              </form>
-              { list.length ? <GenerateFilters/> : ""}      
-              { list.length ? <GenerateList/> : ""}
+              </form>      
+              { list.length ? <GenerateListRoute/> : ""}
           </div>  
   );
 }
