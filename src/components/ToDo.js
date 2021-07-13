@@ -7,7 +7,10 @@ import { GenerateCompletedList } from './GenerateCompletedList';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './header';
 import { BrowserRouter as Router, Route,Switch } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
+toast.configure();
 function ToDo(props) {
   const inputRef = useRef();
   const editRef = useRef();
@@ -27,6 +30,7 @@ function ToDo(props) {
       let tempTask = {listItem:inputRef.current.value.trim(),status:false,toedit:false};
       createTask(props.authtoken,tempTask).then((res) =>{
         setlist([...list].concat(res.data))
+        toast.success('Task added successfully',{autoClose:2000});
       }); 
     }
     inputRef.current.value = "";
@@ -38,17 +42,17 @@ function ToDo(props) {
 
     if(regexTrailingWhiteSpace.test(str)){
       if(regexOnlyWhiteSpace.test(str)){
-        alert("you cant enter only space");
+        toast.warning('you cannot enter only space',{position:"top-center",autoClose:2000});
         return false;
       }
       else{
         if(str){
-          alert("trailing spaces are not allowed");
+          toast.warning('Trailing spaces are not allowed',{position:"top-center",autoClose:2000});
           strRef.current.value = strRef.current.value.trim();
           return false;
         }
         else{
-          alert("enter something!");
+          toast.warning('Must enter some value',{position:"top-center",autoClose:2000});
           return false;
         }
       } 
@@ -61,6 +65,7 @@ function ToDo(props) {
     if(confirmation){
       deleteTask(props.authtoken, id);
       setlist([...list].filter(item => item.taskNo !== id));
+      toast.success('Task deleted successfully',{autoClose:2000});
     }  
     //setlist([...list].filter(item => item.taskNo !== id));
   }
@@ -80,6 +85,7 @@ function ToDo(props) {
     setlist(await Promise.all([...list].map( i => { 
       if(i.taskNo === item){
         const temp = Promise.resolve (updateStatus(props.authtoken, i.taskNo).then(res => res.data));
+        toast.success('Task Status changed successfully',{autoClose:2000});
         return temp;
       }
       else
@@ -93,6 +99,7 @@ function ToDo(props) {
         if(i.taskNo === item){
           let tempTask = {...i, listItem:editRef.current.value.trim(), toedit:false};
           const result = Promise.resolve (editTask(props.authtoken, item, tempTask).then(res => res.data));
+          toast.success('Task Updated successfully',{autoClose:2000});
           console.log(result);
           return result;
         }

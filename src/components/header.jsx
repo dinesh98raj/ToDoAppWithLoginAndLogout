@@ -1,10 +1,12 @@
 import React from 'react';
+import { toast } from 'react-toastify';
 import './header.css';
 
 function header(props){
     function handleLogout(){
         sessionStorage.removeItem("token");
         props.handleToken("");
+        toast.success('Logged out succesfully',{autoClose:2000});
     }
 
     return(

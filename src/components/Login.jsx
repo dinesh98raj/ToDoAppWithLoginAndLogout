@@ -2,7 +2,10 @@ import React, { useState } from 'react';
 import { getAuthenticationToken } from '../services/ListOfTaskService';
 import LoginImg from './todoLogin.png';
 import './Login.css';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
+toast.configure();
 export default function Login(props) {
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
@@ -17,10 +20,11 @@ export default function Login(props) {
       .then(res => {
         sessionStorage.setItem("token", JSON.stringify(res.data.jwt));
         props.setToken(res.data.jwt)
+        toast.info(`Welcome ${username}`,{autoClose:2000,closeOnClick:true});
       })
       .catch(err => {
         if (err.response.status === 403) {
-          alert("bad credentials");
+          toast.error('Invalid credentials', {position:"top-center",hideProgressBar:true,autoClose:1000,closeOnClick:true});
         }
       });
     //console.log(token);
