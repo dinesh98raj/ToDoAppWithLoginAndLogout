@@ -4,7 +4,6 @@ import { getListOfTask, createTask, editTask, deleteTask, updateStatus } from '.
 import GenerateParticularListItem from './GenerateParticularListItem';
 import GenerateActiveList from './GenerateActiveList';
 import { GenerateCompletedList } from './GenerateCompletedList';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './header';
 import { BrowserRouter as Router, Route,Switch } from 'react-router-dom';
 import { toast } from 'react-toastify';

@@ -2,7 +2,7 @@
   display: grid;
   grid-template-areas: "heading nav";
   padding: 10px;
-  background-color: #24252a;
+  background-color: #ff4584;
 }
 
 .Nav {
@@ -14,7 +14,10 @@
 }
 
 .heading {
+  letter-spacing: 1px;
   color: #fff;
+  font-weight: 300;
+  font-size: 16px;
 }
 
 .Header .heading > h2 {
@@ -22,7 +25,10 @@
 }
 .Nav a {
   text-decoration: none;
+  letter-spacing: 1px;
   color: #fff;
+  font-weight: 300;
+  font-size: 16px;
 }
 
 .Nav a:hover {
@@ -34,10 +40,11 @@
 }
 
 .Nav button {
-  background-color: #ee0618;
+  background-color: #ff4584;
   color: #fff;
   padding: 3px 6px;
-  border-radius: 10px;
+  letter-spacing: 1px;
+  border-radius: 30px;
 }
 
 @media (max-width: 700px) {
