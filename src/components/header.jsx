@@ -13,7 +13,7 @@ function Header(props){
     const ref = useRef(null);
     const handleScroll = () => {
     if (ref.current) {
-        console.log(ref.current.getBoundingClientRect());
+        //console.log(ref.current.getBoundingClientRect());
         //console.log(ref.current.getBoundingClientRect().top);
       setSticky(ref.current.getBoundingClientRect().top <= 0);
     }
@@ -31,6 +31,7 @@ function Header(props){
         <div className={`sticky-wrapper${isSticky ? ' sticky' : ''}`} ref={ref}>
             <header className="Header sticky-inner">
                 <div className="heading">
+                    <i class="fas fa-list-alt fa-2x"></i>
                     <h4 className="head">TODO LIST</h4>
                 </div>
                 <nav className="Nav">

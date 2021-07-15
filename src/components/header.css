@@ -1,6 +1,5 @@
 .sticky-wrapper {
   position: relative;
-  height: 3rem;
 }
 
 .sticky .sticky-inner {
@@ -15,7 +14,8 @@
   display: grid;
   grid-template-areas: "heading nav";
   padding: 10px;
-  background-color: #ff4584;
+  background-color: #b52db1;
+  height: 100px;
 }
 
 .Nav {
@@ -35,9 +35,11 @@
 
 .Header .heading > h4 {
   color: #fff;
+  display: inline-block;
   font-weight: 600px;
   font-size: 1.5em;
   letter-spacing: 2px;
+  margin: 0px 5px;
 }
 
 .Nav a {
