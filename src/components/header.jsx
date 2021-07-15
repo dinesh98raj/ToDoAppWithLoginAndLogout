@@ -10,7 +10,9 @@ function Header(props){
     }
 
     const [isSticky, setSticky] = useState(false);
+    //const [activelink,setActivelink] = useState("");
     const ref = useRef(null);
+
     const handleScroll = () => {
     if (ref.current) {
         console.log(ref.current.getBoundingClientRect());
@@ -27,6 +29,10 @@ function Header(props){
         };
       }, []);
 
+      /*useEffect(() => {
+            setActivelink(activelink);
+      },[]);*/
+
     return(
         <div className={`sticky-wrapper${isSticky ? ' sticky' : ''}`} ref={ref}>
             <header className="Header sticky-inner">
@@ -35,9 +41,9 @@ function Header(props){
                     <h4 className="head">TODO LIST</h4>
                 </div>
                 <nav className="Nav">
-                    <a href="/">ALL</a>
-                    <a href="/active">Active</a>
-                    <a href="/finished">Finished</a>
+                    <li /*className={activelink==="all"?"active":""} onClick={setActivelink("all")}*/><a href="/">ALL</a></li>
+                    <li /*className={activelink==="active"?"active":""} onClick={setActivelink("active")}*/><a href="/active">Active</a></li>
+                    <li /*className={activelink==="finished"?"active":""} onClick={setActivelink("finished")}*/><a href="/finished">Finished</a></li>
                     <button type="submit" onClick={handleLogout}>Logout</button>
                 </nav>
             </header>

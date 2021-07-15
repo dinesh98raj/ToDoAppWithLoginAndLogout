@@ -57,7 +57,7 @@
   color: #111;
 }
 
-.Nav a.selected {
+.Nav li.active {
   text-decoration: underline;
   background-color: tomato;
 }
