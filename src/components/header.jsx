@@ -13,9 +13,9 @@ function Header(props){
     const ref = useRef(null);
     const handleScroll = () => {
     if (ref.current) {
-        //console.log(ref.current.getBoundingClientRect());
-        //console.log(ref.current.getBoundingClientRect().top);
-      setSticky(ref.current.getBoundingClientRect().top <= 0);
+        console.log(ref.current.getBoundingClientRect());
+        console.log(ref.current.getBoundingClientRect().top);
+      setSticky(ref.current.getBoundingClientRect().top < 0);
     }
     };
 

@@ -28,24 +28,25 @@ h1 {
 
 .Addform input,
 .Addform button {
-  background-color: rgb(27, 112, 137);
+  /*background-color: rgb(27, 112, 137);*/
   flex: 3;
   border: none;
   outline: none;
   padding: 0 20px;
   margin: 0 5px;
-  color: #fff;
+  color: #607d8b;
   min-width: 95px;
   font-weight: 400;
   border: 1px solid #607d8b;
   font-size: 16px;
   letter-spacing: 1px;
   border-radius: 30px;
+  height: 50px;
 }
 
 .Addform input::placeholder {
   letter-spacing: 1px;
-  color: #fff;
+  color: #607d8b;
   font-weight: 300px;
   font-size: 16px;
 }
@@ -56,7 +57,7 @@ h1 {
 
 .Addform button {
   flex: 1;
-  background-color: #f9e79f;
+  background-color: #3498db;
   color: #fff;
   letter-spacing: 1px;
   font-weight: 300px;
@@ -75,14 +76,15 @@ form input::placeholder {
 
 .particularItem {
   background-color: #bac8f4;
-  margin: 5px 0;
-  padding: 5px;
+  margin: 10px 0;
+  padding: 10px 5px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   border-radius: 5px;
   color: black;
+  height: 50px;
 }
 
 #flexContainer .completed {
@@ -116,18 +118,17 @@ img {
   width: 17px;
 }
 
-.inputdis {
-  background-color: transparent;
+.particularItem input[type="text"] {
+  background: transparent;
   border: 0;
-  color: #fff;
+  font-size: 16px;
+  font-weight: 300px;
+  letter-spacing: 1px;
+  color: #111;
 }
 
 .inputdis:focus {
   outline: none;
-}
-
-.filter {
-  margin: 2px 2px;
 }
 
 .space {
