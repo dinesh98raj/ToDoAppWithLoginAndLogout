@@ -6,6 +6,9 @@
   max-height: 600px;*/
   margin: 50px auto;
   margin: auto;
+  letter-spacing: 1px;
+  font-weight: 300px;
+  font-size: 16px;
   /*padding: 10px;*/
 }
 
