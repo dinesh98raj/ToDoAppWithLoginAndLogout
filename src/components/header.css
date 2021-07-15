@@ -1,3 +1,16 @@
+.sticky-wrapper {
+  position: relative;
+  height: 3rem;
+}
+
+.sticky .sticky-inner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+
 .Header {
   display: grid;
   grid-template-areas: "heading nav";
@@ -16,13 +29,17 @@
 .heading {
   letter-spacing: 1px;
   color: #fff;
-  font-weight: 300;
+  font-weight: 300px;
   font-size: 16px;
 }
 
-.Header .heading > h2 {
-  pointer-events: none;
+.Header .heading > h4 {
+  color: #fff;
+  font-weight: 600px;
+  font-size: 1.5em;
+  letter-spacing: 2px;
 }
+
 .Nav a {
   text-decoration: none;
   letter-spacing: 1px;
@@ -32,10 +49,12 @@
 }
 
 .Nav a:hover {
-  background-color: dimgray;
+  background-color: #f8b7f7;
+  color: #111;
 }
 
 .Nav a.selected {
+  text-decoration: underline;
   background-color: tomato;
 }
 
