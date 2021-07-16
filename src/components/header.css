@@ -15,7 +15,7 @@
   grid-template-areas: "heading nav";
   padding: 10px;
   background-color: #e854c8;
-  height: 80px;
+  height: 100px;
   align-items: center;
 }
 
@@ -48,22 +48,25 @@
   text-decoration: none;
   letter-spacing: 1px;
   color: #fff;
+  padding: 5px;
   font-weight: 300;
   font-size: 20px;
 }
 
 .Nav a:hover {
   background-color: #f8b7f7;
+  border-radius: 10px;
   color: #111;
 }
 
-.Nav li.active {
-  text-decoration: underline;
-  background-color: tomato;
+.Header .Nav .active {
+  background-color: #f8b7f7;
+  color: #111;
+  border-radius: 10px;
 }
 
 .Nav button {
-  background-color: #ff4584;
+  background-color: #9012bc;
   color: #fff;
   padding: 3px 6px;
   letter-spacing: 1px;

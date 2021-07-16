@@ -5,7 +5,7 @@ import GenerateParticularListItem from './GenerateParticularListItem';
 import GenerateActiveList from './GenerateActiveList';
 import { GenerateCompletedList } from './GenerateCompletedList';
 import Header from './header';
-import { BrowserRouter as Router, Route,Switch } from 'react-router-dom';
+import {Route,Switch } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -120,7 +120,6 @@ function ToDo(props) {
 
 function GenerateListRoute(){
   return(
-    <Router>
       <Switch>
           <Route path="/active">
             <div id="flexContainer">
@@ -154,7 +153,6 @@ function GenerateListRoute(){
             </div>
           </Route>
         </Switch>
-    </Router>
   );
 }
 
