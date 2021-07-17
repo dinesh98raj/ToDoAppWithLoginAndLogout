@@ -11,7 +11,7 @@ export const GenerateCompletedList = (props) => {
       <div className = "particularItem completed">
         <div className="names">{item.listItem}</div>
         <div className = "buttons disable-button"><img  src={Edit} alt="edit"/></div>
-        <div className="buttons" onClick={() => props.onDelete(item.taskNo)}><img src={Del} alt="delete"/></div>
+        <div className="buttons" onClick={() => props.onDelete(item.taskNo)}><i class="fas fa-trash-alt"></i></div>
         <div className = "buttons disable-button"><input id="itemCheckBox" type="checkbox" className = "disable-button" checked disabled/></div>
       </div>);}
     else {return null;}

@@ -23,7 +23,7 @@ const GenerateActiveList = React.forwardRef((props,ref) => {
       <div className="particularItem" >
         <div className="names">{item.listItem}</div>
         <div className="buttons" onClick={() => props.onEdit(item.taskNo)}><img src={Edit} alt="edit"/></div>
-        <div className="buttons" onClick={() => props.onDelete(item.taskNo)}><img src={Del} alt="delete"/></div>
+        <div className="buttons" onClick={() => props.onDelete(item.taskNo)}><i class="fas fa-trash-alt"></i></div>
         <div className="buttons" onClick={() => props.onStatus(item.taskNo)}><input type="checkbox"/></div>
       </div>);}
     });
